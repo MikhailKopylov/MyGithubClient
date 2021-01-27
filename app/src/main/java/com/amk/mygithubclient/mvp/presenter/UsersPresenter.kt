@@ -5,14 +5,15 @@ import com.amk.mygithubclient.mvp.model.repo.IGithubUsersRepo
 import com.amk.mygithubclient.mvp.presenter.list.IUserListPresenter
 import com.amk.mygithubclient.mvp.view.UsersView
 import com.amk.mygithubclient.mvp.view.list.UserItemView
+import com.amk.mygithubclient.navigation.Screens
 import io.reactivex.rxjava3.core.Scheduler
 import moxy.MvpPresenter
 import ru.terrakok.cicerone.Router
 
 class UsersPresenter(
-    val mainThreadScheduler: Scheduler,
-    val usersRepo: IGithubUsersRepo,
-    val router: Router
+    private val mainThreadScheduler: Scheduler,
+    private val usersRepo: IGithubUsersRepo,
+    private val router: Router
 ) : MvpPresenter<UsersView>() {
 
     class UsersListPresenter : IUserListPresenter {
@@ -38,7 +39,8 @@ class UsersPresenter(
         loadData()
 
         usersListPresenter.itemClickListener = { itemView ->
-            // TODO:
+            val user = usersListPresenter.users[itemView.pos]
+            router.navigateTo(Screens.UserScreen(user))
         }
     }
 
