@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="repository name"
+        android:gravity="center"
+        android:paddingTop="16dp"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp" />
+    <TextView
+        android:id="@+id/tv_fork_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="fork count"
+        android:gravity="center"
+        android:paddingTop="16dp"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp" />
+    <TextView
+        android:id="@+id/tv_watchers_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="watchers count"
+        android:gravity="center"
+        android:paddingTop="16dp"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp" />
+    <TextView
+        android:id="@+id/tv_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="language"
+        android:gravity="center"
+        android:paddingTop="16dp"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp" />
+
+</LinearLayout>
