@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.amk.mygithubclient.ApiHolder
 import com.amk.mygithubclient.App
 import com.amk.mygithubclient.R
+import com.amk.mygithubclient.mvp.model.contextImplementation.AndroidNetworkStatus
 import com.amk.mygithubclient.mvp.model.entity.GithubUser
+import com.amk.mygithubclient.mvp.model.entity.room.Database
+import com.amk.mygithubclient.mvp.model.network.INetworkStatus
 import com.amk.mygithubclient.mvp.model.repo.retrofit.RetrofitRepositoriesRepo
 import com.amk.mygithubclient.mvp.presenter.UserPresenter
 import com.amk.mygithubclient.mvp.view.UserView
@@ -26,7 +29,7 @@ class UserFragment : MvpAppCompatFragment(), UserView, BackButtonListener {
         UserPresenter(
             user,
             AndroidSchedulers.mainThread(),
-            RetrofitRepositoriesRepo(ApiHolder().api),
+            RetrofitRepositoriesRepo(ApiHolder().api, AndroidNetworkStatus(App.instance), Database.getInstance()),
             App.instance.router
         )
     }
