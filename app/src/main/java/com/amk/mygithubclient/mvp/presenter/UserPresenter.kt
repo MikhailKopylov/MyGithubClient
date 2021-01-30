@@ -1,7 +1,10 @@
 package com.amk.mygithubclient.mvp.presenter
 
+import com.amk.mygithubclient.mvp.model.cash.room.RoomGithubRepositoriesCache
+import com.amk.mygithubclient.mvp.model.cash.room.RoomGithubUsersCache
 import com.amk.mygithubclient.mvp.model.entity.GithubRepository
 import com.amk.mygithubclient.mvp.model.entity.GithubUser
+import com.amk.mygithubclient.mvp.model.entity.room.Database
 import com.amk.mygithubclient.mvp.model.repo.IGithubRepositoriesRepo
 import com.amk.mygithubclient.mvp.presenter.list.IRepositoryListPresenter
 import com.amk.mygithubclient.mvp.view.UserView
@@ -46,7 +49,7 @@ class UserPresenter(
     }
 
     private fun loadData() {
-        repositoriesRepo.getRepositories(user)
+        repositoriesRepo.getRepositories(user, RoomGithubRepositoriesCache(Database.getInstance()))
             .observeOn(mainThreadScheduler)
             .subscribe({ repositories ->
                 repositoriesListPresenter.repositories.clear()

@@ -29,7 +29,7 @@ class UserFragment : MvpAppCompatFragment(), UserView, BackButtonListener {
         UserPresenter(
             user,
             AndroidSchedulers.mainThread(),
-            RetrofitRepositoriesRepo(ApiHolder().api, AndroidNetworkStatus(App.instance), Database.getInstance()),
+            RetrofitRepositoriesRepo(ApiHolder().api, AndroidNetworkStatus(App.instance)),
             App.instance.router
         )
     }
