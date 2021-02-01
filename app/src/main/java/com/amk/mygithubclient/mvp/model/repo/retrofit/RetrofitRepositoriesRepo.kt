@@ -13,17 +13,20 @@ class RetrofitRepositoriesRepo(
     private val api: IDataSource,
     private val networkStatus: INetworkStatus,
 
-) : IGithubRepositoriesRepo {
+    ) : IGithubRepositoriesRepo {
 
-    override fun getRepositories(user: GithubUser, cashe:IGithubRepositoriesCache): Single<List<GithubRepository>> =
+    override fun getRepositories(
+        user: GithubUser,
+        cache: IGithubRepositoriesCache
+    ): Single<List<GithubRepository>> =
         user.reposUrl?.let { reposUtl ->
             networkStatus.isOnlineSingle().flatMap { isOnline ->
                 if (isOnline) {
                     api.getRepositories(reposUtl).flatMap {
-                        cashe.addRepository(user, it).toSingleDefault(it)
+                        cache.addRepository(user, it).toSingleDefault(it)
                     }
                 } else {
-                    cashe.getRepositories(user)
+                    cache.getRepositories(user)
                 }
             }.subscribeOn(Schedulers.io())
         } ?: Single.error(RuntimeException("No such repositories "))

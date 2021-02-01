@@ -22,7 +22,7 @@ abstract class Database : RoomDatabase() {
 
         fun create(context: Context) {
             if (instance == null) {
-                instance = Room.databaseBuilder(context!!, Database::class.java, DB_NAME).build()
+                instance = Room.databaseBuilder(context, Database::class.java, DB_NAME).build()
             }
         }
     }

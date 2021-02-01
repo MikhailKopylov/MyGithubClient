@@ -1,7 +1,6 @@
 package com.amk.mygithubclient.mvp.presenter
 
 import com.amk.mygithubclient.mvp.model.cash.room.RoomGithubRepositoriesCache
-import com.amk.mygithubclient.mvp.model.cash.room.RoomGithubUsersCache
 import com.amk.mygithubclient.mvp.model.entity.GithubRepository
 import com.amk.mygithubclient.mvp.model.entity.GithubUser
 import com.amk.mygithubclient.mvp.model.entity.room.Database
@@ -43,7 +42,7 @@ class UserPresenter(
         loadData()
 
         repositoriesListPresenter.itemClickListener = { itemView ->
-           val repository = repositoriesListPresenter.repositories[itemView.pos]
+            val repository = repositoriesListPresenter.repositories[itemView.pos]
             router.navigateTo(Screens.RepositoryScreen(repository = repository))
         }
     }

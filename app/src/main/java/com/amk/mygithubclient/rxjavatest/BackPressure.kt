@@ -15,7 +15,8 @@ class BackPressure {
         //fun createJust2() = Observable.just("4", "5", "6")
 
         fun noBackPressure() = Observable.range(0, 10000000).subscribeOn(Schedulers.io())
-        fun backPressure() = Flowable.range(0, 10000000).subscribeOn(Schedulers.io()).onBackpressureLatest()
+        fun backPressure() =
+            Flowable.range(0, 10000000).subscribeOn(Schedulers.io()).onBackpressureLatest()
 
         fun observable1() = Observable.just("1")
         fun observable2() = Observable.just("2")
@@ -27,19 +28,19 @@ class BackPressure {
                 .subscribe({
                     Thread.sleep(1000)
                     println(it.toString())
-                },{
+                }, {
                     println("onError: ${it.message}")
                 })
 
         }
 
-        fun consumeBackPressure(){
+        fun consumeBackPressure() {
             producer.backPressure()
                 .observeOn(Schedulers.computation(), false, 1)
                 .subscribe({
                     Thread.sleep(1000)
                     println(it.toString())
-                },{
+                }, {
                     println("onError: ${it.message}")
                 })
         }

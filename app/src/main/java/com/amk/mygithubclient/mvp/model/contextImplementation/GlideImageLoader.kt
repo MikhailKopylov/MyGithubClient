@@ -1,4 +1,4 @@
-package com.amk.mygithubclient.ui.image
+package com.amk.mygithubclient.mvp.model.contextImplementation
 
 import android.widget.ImageView
 import com.amk.mygithubclient.mvp.model.image.IImageLoader

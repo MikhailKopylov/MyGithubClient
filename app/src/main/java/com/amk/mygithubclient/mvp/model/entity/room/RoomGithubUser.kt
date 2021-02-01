@@ -10,4 +10,4 @@ class RoomGithubUser(
     var avatarUrl: String,
     var reposUrl: String,
 
-)
+    )

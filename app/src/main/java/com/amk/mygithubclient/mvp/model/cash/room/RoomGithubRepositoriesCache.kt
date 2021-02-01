@@ -32,15 +32,16 @@ class RoomGithubRepositoriesCache(private val db: Database) : IGithubRepositorie
             CompletableError(e)
         }
 
-    override fun getRepositories(user: GithubUser):Single<List<GithubRepository>> = Single.fromCallable {
-        db.repositoryDao.findForUser(user.id).map {
-            GithubRepository(
-                it.id,
-                it.name,
-                it.forksCount,
-                it.watchersCount,
-                it.language
-            )
+    override fun getRepositories(user: GithubUser): Single<List<GithubRepository>> =
+        Single.fromCallable {
+            db.repositoryDao.findForUser(user.id).map {
+                GithubRepository(
+                    it.id,
+                    it.name,
+                    it.forksCount,
+                    it.watchersCount,
+                    it.language
+                )
+            }
         }
-    }
 }

@@ -1,6 +1,5 @@
-package com.amk.mygithubclient
+package com.amk.mygithubclient.mvp.model.api
 
-import com.amk.mygithubclient.mvp.model.api.IDataSource
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit

@@ -19,6 +19,7 @@ class RepositoriesRVAdapter(val presenter: IRepositoryListPresenter) :
         override fun setName(text: String) = with(containerView) {
             tv_name.text = text
         }
+
         override var pos = -1
     }
 

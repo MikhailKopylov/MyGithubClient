@@ -11,4 +11,4 @@ class GithubRepository(
     @Expose val forksCount: Int? = null,
     @Expose val watchersCount: Int? = null,
     @Expose val language: String? = null,
-    ) : Parcelable
+) : Parcelable
