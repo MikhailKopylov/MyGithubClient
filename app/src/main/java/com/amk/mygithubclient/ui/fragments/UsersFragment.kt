@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.amk.mygithubclient.ApiHolder
+import com.amk.mygithubclient.mvp.model.api.ApiHolder
 import com.amk.mygithubclient.App
 import com.amk.mygithubclient.R
 import com.amk.mygithubclient.mvp.model.cash.room.RoomGithubUsersCache
@@ -16,7 +16,7 @@ import com.amk.mygithubclient.mvp.presenter.UsersPresenter
 import com.amk.mygithubclient.mvp.view.UsersView
 import com.amk.mygithubclient.ui.BackButtonListener
 import com.amk.mygithubclient.ui.adapter.UsersRVAdapter
-import com.amk.mygithubclient.ui.image.GlideImageLoader
+import com.amk.mygithubclient.mvp.model.contextImplementation.GlideImageLoader
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.fragment_users.*
 import moxy.MvpAppCompatFragment

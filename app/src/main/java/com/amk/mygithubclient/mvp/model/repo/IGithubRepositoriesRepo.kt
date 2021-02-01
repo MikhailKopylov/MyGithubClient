@@ -6,5 +6,8 @@ import com.amk.mygithubclient.mvp.model.entity.GithubUser
 import io.reactivex.rxjava3.core.Single
 
 interface IGithubRepositoriesRepo {
-    fun getRepositories(user: GithubUser, cashe: IGithubRepositoriesCache): Single<List<GithubRepository>>
+    fun getRepositories(
+        user: GithubUser,
+        cache: IGithubRepositoriesCache
+    ): Single<List<GithubRepository>>
 }
