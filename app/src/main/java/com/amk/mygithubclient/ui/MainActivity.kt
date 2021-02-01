@@ -7,7 +7,6 @@ import com.amk.mygithubclient.mvp.presenter.MainPresenter
 import com.amk.mygithubclient.mvp.view.MainView
 import moxy.MvpAppCompatActivity
 import moxy.ktx.moxyPresenter
-import ru.geekbrains.githubclient.rxjavatest.BackPressure
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
 
 class MainActivity : MvpAppCompatActivity(), MainView {
