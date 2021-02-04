@@ -21,24 +21,25 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.fragment_users.*
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
+import javax.inject.Inject
 
 class UsersFragment : MvpAppCompatFragment(), UsersView, BackButtonListener {
+
+    @Inject
+    lateinit var database: Database
+
     companion object {
-        fun newInstance() = UsersFragment()
+        fun newInstance() = UsersFragment().apply {
+            App.instance.appComponent.inject(this)
+        }
+
     }
 
     val presenter: UsersPresenter by moxyPresenter {
-        UsersPresenter(
-            AndroidSchedulers.mainThread(),
+        UsersPresenter(AndroidSchedulers.mainThread()).apply {
+            App.instance.appComponent.inject(this)
+        }
 
-            RetrofitGithubUsersRepo(
-                ApiHolder().api,
-                AndroidNetworkStatus(App.instance),
-                RoomGithubUsersCache(Database.getInstance())
-            ),
-
-            App.instance.router
-        )
     }
 
     var adapter: UsersRVAdapter? = null

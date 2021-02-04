@@ -48,7 +48,7 @@ class UserPresenter(
     }
 
     private fun loadData() {
-        repositoriesRepo.getRepositories(user, RoomGithubRepositoriesCache(Database.getInstance()))
+        repositoriesRepo.getRepositories(user)
             .observeOn(mainThreadScheduler)
             .subscribe({ repositories ->
                 repositoriesListPresenter.repositories.clear()
