@@ -1,4 +1,4 @@
-package com.amk.mygithubclient.mvp.model.cash
+package com.amk.mygithubclient.mvp.model.cache
 
 import com.amk.mygithubclient.mvp.model.entity.GithubUser
 import io.reactivex.rxjava3.core.Completable

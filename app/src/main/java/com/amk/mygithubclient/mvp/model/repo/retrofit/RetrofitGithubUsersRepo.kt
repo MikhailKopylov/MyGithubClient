@@ -1,7 +1,7 @@
 package com.amk.mygithubclient.mvp.model.repo.retrofit
 
 import com.amk.mygithubclient.mvp.model.api.IDataSource
-import com.amk.mygithubclient.mvp.model.cash.IGithubUsersCache
+import com.amk.mygithubclient.mvp.model.cache.IGithubUsersCache
 import com.amk.mygithubclient.mvp.model.entity.GithubUser
 import com.amk.mygithubclient.mvp.model.network.INetworkStatus
 import com.amk.mygithubclient.mvp.model.repo.IGithubUsersRepo

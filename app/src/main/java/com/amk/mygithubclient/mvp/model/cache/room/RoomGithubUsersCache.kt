@@ -1,6 +1,6 @@
-package com.amk.mygithubclient.mvp.model.cash.room
+package com.amk.mygithubclient.mvp.model.cache.room
 
-import com.amk.mygithubclient.mvp.model.cash.IGithubUsersCache
+import com.amk.mygithubclient.mvp.model.cache.IGithubUsersCache
 import com.amk.mygithubclient.mvp.model.entity.GithubUser
 import com.amk.mygithubclient.mvp.model.entity.room.Database
 import com.amk.mygithubclient.mvp.model.entity.room.RoomGithubUser

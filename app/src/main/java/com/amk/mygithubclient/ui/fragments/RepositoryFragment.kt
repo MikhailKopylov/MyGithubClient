@@ -19,10 +19,9 @@ class RepositoryFragment : MvpAppCompatFragment(), RepositoryView, BackButtonLis
 
     private val presenter by moxyPresenter {
         val repository = arguments?.get(REPOSITORY_ARG) as GithubRepository
-        RepositoryPresenter(
-            repository,
-            App.instance.router
-        )
+        RepositoryPresenter(repository).apply {
+            App.instance.appComponent.inject(this)
+        }
     }
 
     companion object {
