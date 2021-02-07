@@ -5,51 +5,37 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.amk.mygithubclient.mvp.model.api.ApiHolder
 import com.amk.mygithubclient.App
 import com.amk.mygithubclient.R
-import com.amk.mygithubclient.mvp.model.cash.room.RoomGithubUsersCache
-import com.amk.mygithubclient.mvp.model.contextImplementation.AndroidNetworkStatus
-import com.amk.mygithubclient.mvp.model.entity.room.Database
-import com.amk.mygithubclient.mvp.model.repo.retrofit.RetrofitGithubUsersRepo
+import com.amk.mygithubclient.mvp.model.contextImplementation.GlideImageLoader
 import com.amk.mygithubclient.mvp.presenter.UsersPresenter
 import com.amk.mygithubclient.mvp.view.UsersView
 import com.amk.mygithubclient.ui.BackButtonListener
 import com.amk.mygithubclient.ui.adapter.UsersRVAdapter
-import com.amk.mygithubclient.mvp.model.contextImplementation.GlideImageLoader
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.fragment_users.*
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
-import javax.inject.Inject
 
 class UsersFragment : MvpAppCompatFragment(), UsersView, BackButtonListener {
 
-    @Inject
-    lateinit var database: Database
-
     companion object {
-        fun newInstance() = UsersFragment().apply {
-            App.instance.appComponent.inject(this)
-        }
-
+        fun newInstance() = UsersFragment()
     }
 
     val presenter: UsersPresenter by moxyPresenter {
         UsersPresenter(AndroidSchedulers.mainThread()).apply {
             App.instance.appComponent.inject(this)
         }
-
     }
 
-    var adapter: UsersRVAdapter? = null
+    private var adapter: UsersRVAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) =
-        View.inflate(context, R.layout.fragment_users, null)
+    ): View = View.inflate(context, R.layout.fragment_users, null)
 
     override fun init() {
         rv_users.layoutManager = LinearLayoutManager(context)

@@ -1,9 +1,7 @@
 package com.amk.mygithubclient.mvp.presenter
 
-import com.amk.mygithubclient.mvp.model.cash.room.RoomGithubRepositoriesCache
 import com.amk.mygithubclient.mvp.model.entity.GithubRepository
 import com.amk.mygithubclient.mvp.model.entity.GithubUser
-import com.amk.mygithubclient.mvp.model.entity.room.Database
 import com.amk.mygithubclient.mvp.model.repo.IGithubRepositoriesRepo
 import com.amk.mygithubclient.mvp.presenter.list.IRepositoryListPresenter
 import com.amk.mygithubclient.mvp.view.UserView
@@ -12,13 +10,18 @@ import com.amk.mygithubclient.navigation.Screens
 import io.reactivex.rxjava3.core.Scheduler
 import moxy.MvpPresenter
 import ru.terrakok.cicerone.Router
+import javax.inject.Inject
 
 class UserPresenter(
     private val user: GithubUser,
     private val mainThreadScheduler: Scheduler,
-    private val repositoriesRepo: IGithubRepositoriesRepo,
-    private val router: Router,
 ) : MvpPresenter<UserView>() {
+
+    @Inject
+    lateinit var repositoriesRepo: IGithubRepositoriesRepo
+
+    @Inject
+    lateinit var router: Router
 
     class RepositoriesListPresenter : IRepositoryListPresenter {
         val repositories = mutableListOf<GithubRepository>()
